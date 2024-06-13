@@ -1,5 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faHtml5,
+  faCss3Alt,
+  faJs,
+  faPython,
+  faReact,
+  faLinux,
+} from '@fortawesome/free-brands-svg-icons';
+import { faDatabase } from '@fortawesome/free-solid-svg-icons';
 import './index.css';
 
 function App() {
@@ -31,12 +41,13 @@ function Profile(props) {
         <p>{props.bio}</p>
         <h2>Skills</h2>
         <hr />
-        <Skill name="HTML/CSS" color="#fab170" />
-        <Skill name="Python" color="#70b7fa" />
-        <Skill name="JavaScript" color="#fae570" />
-        <Skill name="React" color="#9ffcf3" />
-        <Skill name="SQL" color="#fc9fba" />
-        <Skill name="Linux" color="#d1b3fc" />
+        <Skill name="HTML" color="#fab170" icon={faHtml5} />
+        <Skill name="CSS" color="#70bfff" icon={faCss3Alt} />
+        <Skill name="JavaScript" color="#fae570" icon={faJs} />
+        <Skill name="Python" color="#98b8eb" icon={faPython} />
+        <Skill name="React" color="#9ffcf3" icon={faReact} />
+        <Skill name="SQL" color="#fc9fba" icon={faDatabase} />
+        <Skill name="Linux" color="#d1b3fc" icon={faLinux} />
       </div>
     </>
   );
@@ -44,9 +55,10 @@ function Profile(props) {
 
 function Skill(props) {
   return (
-    <p className="skill" style={{ backgroundColor: props.color }}>
-      {props.name}
-    </p>
+    <div className="skill" style={{ backgroundColor: props.color }}>
+      <FontAwesomeIcon icon={props.icon} size="lg" />
+      <span> {props.name}</span>
+    </div>
   );
 }
 
